@@ -10,8 +10,17 @@ This project is a work in progress.
 
 ## Remaining issues
 
-Coding in progress
-Design in progress
+Design missing
+All the failing tests in Jasmine plus :
+
+- Can't figure out how to make the code wait for the user input from the prompt (always return `undefined`).  
+  Temporary fix : user input prompt commented out, sample word "secret" hardcoded inside function `setSecretWord` instead.  
+  => Maybe use a switch like [here](https://www.w3schools.com/jsref/met_win_prompt.asp) ? With a "" (no input) case, and a default case for everything else ?
+
+- If I try to pass `secretWord` as an argument of the function `validateSecretWord`, the function returns `undefined` no matter what. No idea why.  
+  Temporary (?) fix : no argument.
+
+- "Start game now?" confirm box opens twice, no idea why.
 
 ## Credits
 

@@ -1,44 +1,69 @@
 let secretWord = "";
+let validLength;
+let validChars;
 let validWord;
+// Cheat code
+secretWord = "secret";
 // TEST
-console.log("Outside any function:");
-console.log(secretWord);
+//console.log("Value of secretWord outside any function:");
+//console.log(secretWord);
 //
-function StartGame() {
+function startGame() {
+  console.log("fctn startGame");
   setSecretWord();
   validateSecretWord();
-  formatSecretWord();
+  if (validWord) {
+    formatSecretWord();
+    let startNow = confirm("Start game now?");
+    if (startNow == true) {
+      playGame();
+    } else {
+      startGame();
+    }
+  }
 }
 function setSecretWord() {
+  console.log("fctn setSecretword");
   // secretWord = prompt("Choose a secret word (or don't)", "secret");
-  // Cheat code
-  secretWord = "secret";
   // TEST
-  console.log("In setSecretWord:");
-  console.log(secretWord);
+  //console.log("Value of secretWord in setSecretWord:");
+  //console.log(secretWord);
   //
   return secretWord;
 }
-function validateSecretWord(secretWord) {
+function validateSecretWord() {
+  console.log("fctn validateSecretWord");
   // TEST
-  console.log("In validateSecretWord:");
+  console.log("Value of secretWord in validateSecretWord:");
   console.log(secretWord);
   //
   // Test word length
   if (secretWord.length < 1 || secretWord.length > 50) {
-    validWord = false;
+    validLength = false;
     // Throw "word length" error and go back to "start game"
+    // TEST
+    console.log("Test for length, secretword = " + secretWord);
+    console.log("validWord (should be false) = " + validLength);
+    //
   } else {
-    validWord = true;
+    validLength = true;
+    // TEST
+    console.log("Test for length, secretword =" + secretWord);
+    console.log("validWord (should be true) = " + validLength);
+    //
   }
+
   // Test characters
-  let validChars = /^[a-zA-Z.\-_]+$/; // All letters + hyphen
-  if (!secretWord.match(validChars)) {
-    validWord = false;
+  let regex = /^[a-zA-Z.\-]+$/; // All letters + hyphen
+  if (!secretWord.match(regex)) {
+    validChars = false;
     // Throw "invalid character" error and go back to "start game"
   } else {
-    validWord = true;
+    validChars = true;
     // Throw "valid word, game starting now" alert
+  }
+  if (validLength && validChars) {
+    validWord = true;
   }
   return validWord;
 }

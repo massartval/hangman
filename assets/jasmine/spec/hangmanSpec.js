@@ -16,28 +16,35 @@ describe("StartGame", () => {
     //let validWord = validateSecretWord();
     it("should validate an input between 1 and 50 characters", () => {
       secretWord = "secret";
-      expect(validWord).toBeTrue();
+      validateSecretWord();
+      expect(validLength).toBeTrue();
       secretWord = "CharactersCharactersCharactersCharactersCharacters"; // 50 characters
-      expect(validWord).toBeTrue();
+      validateSecretWord();
+      expect(validLength).toBeTrue();
     });
-    it("should not validate a word smaller than 1 character or greater than 50 characters", () => {
-      secretWord = "";
-      expect(validWord).toBeFalse();
+    it("should not validate a word greater than 50 characters", () => {
       secretWord = "CharactersCharactersCharactersCharactersCharactersCharacters"; // 60 characters
-      expect(validWord).toBeFalse();
+      validateSecretWord();
+      expect(validLength).toBeFalse();
+    });
+    it("should not validate a word smaller than 1 character", () => {
+      secretWord = "";
+      validateSecretWord();
+      expect(validLength).toBeFalse();
     });
     it("should validate a word comprised of letters and '-' only", () => {
       // https://stackoverflow.com/questions/16667329/special-character-validation
       secretWord = "secret";
       validateSecretWord();
-      expect(validWord).toBeTrue();
+      expect(validChars).toBeTrue();
       secretWord = "by-pass";
       validateSecretWord();
-      expect(validWord).toBeTrue();
+      expect(validChars).toBeTrue();
     });
     it("should not validate a word containing some other character", () => {
       secretWord = "by pass";
-      expect(validWord).toBeFalse();
+      validateSecretWord();
+      expect(validChars).toBeFalse();
     });
     it("should throw an error if the word is not valid", () => {
       if (validWord === false) {
