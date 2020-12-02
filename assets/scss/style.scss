@@ -1,0 +1,94 @@
+/* --- Normalize --- */ 
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+figure, p {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style-type: none;
+    padding: 0; 
+    margin: 0;
+}
+
+/* --- Media Queries */ 
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    body {
+        background: green;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    body {
+        background: blue;
+    }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    body {
+        background: orange;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    body {
+        background: pink;
+    }
+}
+
+/* --- Global --- */
+
+:root {
+/*  font-size: px; */    /* 1em = ?px !!! Not cool for accessibility !!! */
+    --primary-color: ;
+    --secondary-color: ;
+    --tertiary-color: ;
+    --text-color: ;
+    --shadow-color: ;
+    --border-radius: em;
+    --main-padding: em;
+}
+
+/* WARNING - SCSS variables should be declared outside of any selector and can't be left empty */
+
+$primary-color: white;
+$secondary-color: red;
+$tertiary-color: lightgray;
+$text-color: black;
+
+
+/* --- Layout --- */
+
+body {}
+
+/* --- Styling --- */
+
+header {}
+
+main {}
+
+footer {}
